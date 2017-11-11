@@ -19,7 +19,7 @@ func main() {
 	)
 
 	flag.StringVar(&host, "host", "localhost", "host to listen on")
-	flag.IntVar(&port, "port", 433, "port to listen on")
+	flag.IntVar(&port, "port", 8080, "port to listen on")
 	flag.StringVar(&dir, "dir", ".", "directory to serve")
 	flag.BoolVar(&ssl, "ssl", false, "use ssl")
 	flag.StringVar(&cert, "cert", "", "path to ssl certificate, requires -ssl")
