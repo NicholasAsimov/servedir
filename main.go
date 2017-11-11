@@ -40,10 +40,13 @@ func main() {
 	}
 
 	http.Handle("/", http.FileServer(http.Dir(dir)))
+	
+	addr := fmt.Sprintf("%s:%d", host, port)
+	log.Printf("Listening on %s...", addr)
 
 	if ssl {
-		log.Fatal(http.ListenAndServeTLS(fmt.Sprintf("%s:%d", host, port), cert, key, nil))
+		log.Fatal(http.ListenAndServeTLS(addr, cert, key, nil))
 	} else {
-		log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), nil))
+		log.Fatal(http.ListenAndServe(addr, nil))
 	}
 }
